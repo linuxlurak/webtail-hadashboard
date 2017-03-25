@@ -53,6 +53,9 @@ var param = function (key, fallback) {
 var append = function (text) {
     if (text) {
         var element = document.getElementById('tail');
+        var lines = element.textContent.split('\\n');
+        lines.splice(0,text.split('\\n').length-1);
+        element.textContent = lines.join('\\n');
         element.textContent += text;
         window.scrollTo(0, document.body.scrollHeight);
     }
